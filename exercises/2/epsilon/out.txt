@@ -1,0 +1,28 @@
+Exercise 1:
+Max integer according to limits.h: INT_MAX=2147483647
+My INT_MAX_WHILE=2147483647
+My INT_MAX_FOR=2147483647
+My INT_MAX_DO_WHILE=2147483647
+Min integer according to limits.h: INT_MIN=-2147483648
+My INT_MIN_WHILE=-2147483648
+My INT_MIN_FOR=-2147483648
+My INT_MIN_DO_WHILE=-2147483648
+Machine epsilon as defined in float.h (double): epsilon=2.22045e-16
+my_epsilon_dbl=2.22045e-16
+Machine epsilon as defined in float.h (float): epsilon=1.19209e-07
+my_epsilon_flt=1.19209e-07
+Machine epsilon as defined in float.h (lng dbl): epsilon=1.0842e-19
+my_epsilon_lngdbl=1.0842e-19
+Exercise 2:
+sum_up_float=15.4037
+sum_down_float=18.8079
+difference_float=3.40424
+Explain the difference:
+The floating point errors are bigger for bigger numbers so sum_up_float has a bigger error when calculating the sum because it starts with the biggest numbers which means bigger errors start to accumulate earlier.
+Does this sum converge as a function of max?
+No. Making max bigger does not reduce difference_float but making max significantly smaller does. This suggests that the sum diverges as max -> INT_MAX.
+sum_up_double=21.37163108123489507761406
+sum_down_double=21.37163108123208132838045
+difference_double=2.81375e-12
+Explain the result:
+The double data type is more precise i.e. it contains more digits which means the sums are almost identical. There is still an error but it is very small compared to before. The error can be explained in the same way as before.

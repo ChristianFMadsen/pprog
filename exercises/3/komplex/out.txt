@@ -1,0 +1,48 @@
+a = (1,2)
+b = (3,4)
+Testing komplex_add:
+a+b should equal: (4,6)
+komplex_add returns: (4,6)
+Succes!
+Testing komplex_sub:
+a-b should equal: (-2,-2)
+komplex_sub returns: (-2,-2)
+Succes!
+Testing komplex_equal:
+Return value for komplex_equal(a,a): 1
+Return value for komplex_equal(a,b): 0
+Succes!
+Testing komplex_new:
+Input komplex_new(1.2,-3.9). Output: (1.2,-3.9)
+Succes!
+Testing komplex_mul:
+a*b should equal: (-5,10)
+komplex_mul returns: (-5,10)
+Succes!
+Testing komplex_div:
+a/b should equal: (0.44,0.08)
+komplex_div returns: (0.44,0.08)
+Succes!
+Testing komplex_conjugate:
+The complex conjugate of a is: (1,-2)
+komplex_conjugate returns: (1,-2)
+Succes!
+Testing komplex_abs:
+The absolute value of the complex number a is: (2.23607,0)
+komplex_abs returns: (2.23607,0)
+Succes!
+Testing komplex_exp:
+e^(1+2i) is equal to: (-1.1312,2.47173)
+komplex_exp returns: (-1.1312,2.47173)
+Succes!
+Testing komplex_cos:
+cos(1+2i) is equal to: (2.03272,-3.0519)
+komplex_cos returns: (2.03272,-3.0519)
+Succes!
+Testing komplex_sin:
+sin(1+2i) is equal to: (3.16578,1.9596)
+komplex_sin returns: (3.16578,1.9596)
+Testing komplex_sqrt:
+sqrt(1+2i) is equal to: (1.27202,0.786151)
+komplex_sqrt returns: (1.27202,0.786151)
+Succes!

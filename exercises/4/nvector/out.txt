@@ -1,0 +1,62 @@
+Testing nvector_alloc:
+Test passed
+Testing nvector_set and nvector_get:
+Test passed
+Testing nvector_dot_product:
+Dot product between vectors of same dimension:
+2.2991
+Dot product between vectors of different dimensions:
+Dimensions does not match
+Testing nvector_print:
+Contents of vector a
+(0.394383, 0.79844, 0.197551, 0.76823, 0.55397, 0.513401)
+Contents of vector b
+(0.783099, 0.911647, 0.335223, 0.277775, 0.477397, 0.95223)
+Contents of vector c
+(0.916195, 0.635712, 0.717297, 0.141603, 0.606969, 0.0163006, 0.137232)
+Succes!
+Testing nvector_set_zero:
+nvector_set_zero(c) returns:
+(0, 0, 0, 0, 0, 0, 0)
+Succes!
+Testing nvector_equal:
+nvector_equal will return 1 if the vectors are equal and 0 otherwise.
+nvector_equal(a,a) returns:
+1
+nvector_equal(a,b) returns:
+0
+nvector_equal(a,c) returns:
+0
+Succes!
+Testing nvector_add:
+Contents of vector a
+(0.394383, 0.79844, 0.197551, 0.76823, 0.55397, 0.513401)
+Contents of vector b
+(0.783099, 0.911647, 0.335223, 0.277775, 0.477397, 0.95223)
+a+b is:
+(1.17748, 1.71009, 0.532774, 1.046, 1.03137, 1.46563)
+nvector_add(a,b) returns:
+(1.17748, 1.71009, 0.532774, 1.046, 1.03137, 1.46563)
+nvector_add(a,c) returns:
+Dimensions does not match
+Succes!
+Testing nvector_sub:
+Contents of vector d
+(0.394383, 0.79844, 0.197551, 0.76823, 0.55397, 0.513401)
+Contents of vector e
+(0.783099, 0.911647, 0.335223, 0.277775, 0.477397, 0.95223)
+d-e is:
+(-0.388716, -0.113207, -0.137671, 0.490455, 0.0765729, -0.438829)
+nvector_sub(d,e) returns:
+(-0.388716, -0.113207, -0.137671, 0.490455, 0.0765729, -0.438829)
+nvector_sub(d,c) returns:
+Dimensions does not match
+Succes!
+Testing nvector_scale:
+Contents of vector e
+(0.783099, 0.911647, 0.335223, 0.277775, 0.477397, 0.95223)
+2*e is:
+(1.5662, 1.82329, 0.670446, 0.555549, 0.954794, 1.90446)
+nvector_scale(e,2) returns:
+(1.5662, 1.82329, 0.670446, 0.555549, 0.954794, 1.90446)
+Succes!

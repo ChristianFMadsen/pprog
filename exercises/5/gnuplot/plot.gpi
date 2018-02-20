@@ -1,0 +1,5 @@
+set terminal svg
+set output "plot.svg"
+set xlabel "x"
+set ylabel "y"
+plot "out.io.txt" with lines title "cos(x)", "out.cmd.txt" with lines title "sin(x)"
