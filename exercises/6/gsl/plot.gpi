@@ -1,0 +1,5 @@
+set terminal svg
+set output "plot.svg"
+set xlabel "x"
+set ylabel "f(x)"
+plot "outAi.txt" with lines title "Ai(x)", "outBi.txt" with lines title "Bi(x)"

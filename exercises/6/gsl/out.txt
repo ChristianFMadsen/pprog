@@ -1,0 +1,26 @@
+Elements of matrix m:
+6.13
+-2.9
+5.86
+8.08
+-6.31
+-3.89
+-4.36
+1
+0.19
+
+Elements of vector v:
+6.23
+5.37
+2.29
+
+Vector x s.t. m*x=v:
+-1.1379
+-2.83303
+0.851459
+
+m*x evaluates to:
+6.23
+5.37
+2.29
+Succes!
