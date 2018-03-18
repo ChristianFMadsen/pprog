@@ -1,0 +1,4 @@
+Exact result of log(x)/sqrt(x) integral: -4.000000000000000000
+result = -4.000000000000085265
+estimated error = 0.000000000000135447
+actual error = -0.000000000000085265

@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{kpfonts}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+\title{Exponential function via ODE}
+\author{Christian Færgemand Madsen}
+\date{}
+\maketitle
+
+\noindent The exponential function can be implemented by solving the following ODE:
+\begin{equation}
+\label{eq:expODE}
+\frac{\mathrm{d} y}{\mathrm{d} x}=y(x)
+\end{equation}
+subject to the initial condition: $y(0)=1$. In order to avoid numerical integrations over large intervals the argument have been reduced such that $0 \leq x <1$ by using the following equations:
+\begin{equation*}
+\text{exp}(-x)=\frac{1}{\text{exp}(x)}, \ \text{exp}(x)=\left [ \text{exp}\left ( \frac{x}{2} \right ) \right ]^2
+\end{equation*}
+This differential equation has been solved numerically by using the GNU Scientific Library. The used algorithm is the Runge-Kutta-Fehlberg (4,5) method. The numerical solution is within a relative error of $10^{-10}$ of the correct result. A comparison between the exponential function found in the library \texttt{<math.h>} and the one obtained by solving \eqref{eq:expODE} can be seen in figure \ref{fig:expODEplot}.
+
+\begin{figure}[h]
+\centering
+\input{plot.tex}
+\caption{Comparison between the exponential function from the library math.h and the exponential function obtained by solving \eqref{eq:expODE}.}
+\label{fig:expODEplot}
+\end{figure}
+\end{document}

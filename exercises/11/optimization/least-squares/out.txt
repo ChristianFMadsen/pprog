@@ -1,0 +1,2 @@
+Fitting function:
+f(t)=5.1301*exp(-t/2.72352)+1.08403
