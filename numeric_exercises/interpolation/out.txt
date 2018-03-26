@@ -1,0 +1,10 @@
+Comparison between manually computed quadratic spline coefficients b_i and c_i, and qspline.c:
+Expected coefficients b_i and c_i:
+b_11=b_12=b_13=b_14=c_11=c_12=c_13=c_14=0
+b_21=b_22=b_23=b_24=1 & c_21=c_22=c_23=c_24=0
+b_31=2, b_32=4, b_33=6, b_34=8 & c_31=c_32=c_33=c_34=1
+Computed coefficients:
+i=1: b_1i=0, b_2i=1, b_3i=2, c_1i=0, c_2i=0, c_3i=1
+i=2: b_1i=0, b_2i=1, b_3i=4, c_1i=0, c_2i=0, c_3i=1
+i=3: b_1i=0, b_2i=1, b_3i=6, c_1i=0, c_2i=0, c_3i=1
+i=4: b_1i=0, b_2i=1, b_3i=8, c_1i=0, c_2i=0, c_3i=1
