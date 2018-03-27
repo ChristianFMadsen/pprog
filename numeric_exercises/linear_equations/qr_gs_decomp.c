@@ -27,7 +27,7 @@ for (int i = 0; i < m; i++)
 	}	
 }
 
-void qr_gs_solve(gsl_matrix* Q, gsl_matrix* R, gsl_vector* b, gsl_vector* x)
+void qr_gs_solve(const gsl_matrix* Q, const gsl_matrix* R, const gsl_vector* b, gsl_vector* x)
 {
 	int m = R->size1; //Number of rows in R
 	gsl_blas_dgemv(CblasTrans, 1.0, Q, b, 0.0, x); //Q^(TRANSPOSED)*b stored in x
@@ -43,7 +43,7 @@ void qr_gs_solve(gsl_matrix* Q, gsl_matrix* R, gsl_vector* b, gsl_vector* x)
 	}
 }
 
-void qr_gs_inverse(gsl_matrix* Q,gsl_matrix* R, gsl_matrix* B)
+void qr_gs_inverse(const gsl_matrix* Q, const gsl_matrix* R, gsl_matrix* B)
 {
 int m = Q->size1;
 gsl_vector* b = gsl_vector_calloc(m);
