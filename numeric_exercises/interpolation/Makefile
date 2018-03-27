@@ -17,6 +17,9 @@ out.txt: main
 
 main: main.o linterp.o sinintegral.o qspline.o
 
+main.o linterp.o sinintegral.o: lspline.h
+
+main.o qspline.o: qspline.h
 
 clean: 
 	$(RM) main out.txt data.txt *.o *.pdf
