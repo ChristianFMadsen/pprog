@@ -1,0 +1,4 @@
+First value is the amount of seconds it takes to diagonalize the entire matrix using the cyclic method, second is how long it takes using the eigbyeig method and the third is how long it takes to find the lowest eigenvalue only:
+0.20
+5.03
+0.03

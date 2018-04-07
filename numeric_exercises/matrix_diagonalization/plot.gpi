@@ -1,0 +1,10 @@
+set terminal pdf
+set out 'matrix_diagonalization_time.pdf'
+set xlabel 'Matrix dimension'
+set ylabel 'Time (s)'
+set title 'Diagonalization time as a function of matrix dimension'
+set key left
+f(x)=b+(x/a)*(x/a)*(x/a); \
+	fit f(x) "time.txt" via b,a; \
+	legend = sprintf("fit: %4.2f+(n/%4.2f)^3",b,a); \
+	plot "time.txt" title "Diagonalization time", f(x) title legend; \

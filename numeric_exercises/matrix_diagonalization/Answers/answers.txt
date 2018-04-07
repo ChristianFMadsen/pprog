@@ -1,0 +1,20 @@
+Note: I will be using Matlab matrix notation i.e. [1 0 0; 0 1 0; 0 0 1] is a 3x3 identity matrix.
+
+"Eliminate the off-diagonal elements in the first row only (by running the sweeps not over the whole matrix, but only over the first row until the off-diagonal elements of the first row are all zeroed). Argue, that the corresponding diagonal element is the lowest eigenvalue."
+The matrix [1 2 2; 2 1 2; 2 2 10] has the eigenvalues -1, 2 and 11.
+This means that the diagonalized matrix can be written: [11 0 0; 0 2 0; 0 0 -1]
+Calculating J(1,2)^T * A * J(1,2) we get: [2 0 0; 0 11 0; 0 0 -1]
+Calculating J(1,3)^T * A * J(1,3) we get: [-1 0 0; 0 11 0; 0 0 2]
+Moving on to the next row and calculating J(2,3)^T * A * J(2,3) we get: [-1 0 0; 0 2 0; 0 0 11]
+Note that the matrix' eigenvalues are now sorting in ascending order down the diagonal, that is the element A_11 is the lowest eigenvalue, A_22 is the second lowest and so on.  
+This generalizes to matrices of arbitrary dimension.
+
+"If needed, eliminate the off-diagonal elements in the second row. Argue that the corresponding diagonal element is the second lowest eigenvalue. Argue, that the eliminated elements in the first row will not be affected and can therefore be omitted from the elimination loop."
+Argue that the corresponding diagonal element is the second lowest eigenvalue: See above.
+
+Argue, that the eliminated elements in the first row will not be affected and can therefore be omitted from the elimination loop:
+The eliminated elements in the first row are now 0 so they will not be affected by another rotation.
+
+Find out how to change the formulas for the rotation angle to obtain the largest eigenvalues instead of the lowest:
+This can be done by changing the sign in the denominator of equation 10 and transposing J(p,q) such that sin(phi) is now located in row q column p. See the function in jacobi.c called jacobi_eig_descending.
+
