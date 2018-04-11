@@ -14,10 +14,10 @@ all: outA.txt outB.txt comparisonCyclicVsEigbyeig.txt  matrix_diagonalization_ti
 outA.txt: main-cyclic Makefile
 	./$< $(matrixDim) > $@
 
-outB.txt: main-eigbyeig Makefile
+outB.txt: main-eigbyeig 
 	./$< $(matrixDim) $(numberOfEigVals) > $@
 
-comparisonCyclicVsEigbyeig.txt: main-cyclic main-eigbyeig-asconly Makefile
+comparisonCyclicVsEigbyeig.txt: main-cyclic main-eigbyeig-asconly 
 	cat /dev/null > comparisonCyclicVsEigbyeig.txt
 	@echo "First value is the amount of seconds it takes to diagonalize the entire matrix using the cyclic method, second is how long it takes using the eigbyeig method and the third is how long it takes to find the lowest eigenvalue only:" > comparisonCyclicVsEigbyeig.txt
 	\time -f "%U" -ao comparisonCyclicVsEigbyeig.txt ./main-cyclic $(matrixDimComparison) > /dev/null
@@ -25,7 +25,7 @@ comparisonCyclicVsEigbyeig.txt: main-cyclic main-eigbyeig-asconly Makefile
 	\time -f "%U" -ao comparisonCyclicVsEigbyeig.txt ./main-eigbyeig-asconly $(matrixDimComparison) 1  > /dev/null 
 
 
-time.txt: main-cyclic Makefile 
+time.txt: main-cyclic  
 	cat /dev/null > time.txt #Cleans time.txt
 	for number in `seq 50 5 225`; do \time --format "$$number \t %U" --append --output $@ ./$< $$number > /dev/null; done
 
