@@ -1,0 +1,8 @@
+set term pdf 
+set out "plot.pdf"
+set xlabel "Time"
+set ylabel "Activity"
+set title 'Activity as a function of time for a radioactive substance'
+
+plot "data.txt" index 0 with errorbars title "Experimental data" \
+, "data.txt" index 1 with lines title "Model"
