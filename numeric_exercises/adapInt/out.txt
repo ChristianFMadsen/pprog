@@ -1,0 +1,31 @@
+Testing recursive adaptive integrator:
+Integrating sqrt(x) on the interval [0,1] with acc=1e-06 and eps=1e-06
+integral_result=0.666667, estimated error=5.42507e-08
+
+Integrating 1/sqrt(x) on the interval [0,1] with acc=1e-06 and eps=1e-06
+integral_result=2, estimated error=1.65345e-07
+
+Integrating ln(x)/sqrt(x) on the interval [0,1] with acc=1e-06 and eps=1e-06
+integral_result=-4, estimated error=5.41917e-08
+
+Integrating 4*sqrt(1-(1-x)^2) on the interval [0,1] with acc=1e-11 and eps=1e-10
+integral_result=3.141592653589793115997963468544185161590576171875, estimated error=5.05275e-14, function calls:58500
+Difference between math.h M_PI and the integral result: 0 
+
+Integrating x/(exp(x)-1) on the interval [0,Inf) with acc=1e-10 and eps=1e-10
+Result: pi^2/6 = 1.64493...
+integral_result=1.64493, estimated error=3.20073e-13, function calls: 27940
+
+Using GSL routines:
+integral_result=1.64493, error=2.2095e-11, function calls: 165
+
+Integrating sin(x)/sqrt(x+1) on the interval [-1,1] with acc=1e-10 and eps=1e-10
+Note that the integrand is divergent at x=-1.
+Result=-0.8266196541509...
+First using the integrator from part A:
+integral_result=-0.8266196465662, estimated error=5.45297e-13, function calls: 224204
+
+Now using the Clenshaw-Curtis transformation:
+integral_result=-0.8266196541514, estimated error=4.13264e-13, function calls: 28824
+
+Note that the Clenshaw-Curtis transformation reduces the amount of function calls and produces a result closer to the actual result compared to the integrator from part A.
