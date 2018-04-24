@@ -1,0 +1,6 @@
+Solving the ODE representation of the sine function:
+See the result in sinPlot.pdf
+Steps taken: 8309
+Solving the integral: exp(x)*x^3*sin(x^2) from x=0 to x=exp(1)
+Analytical result: -9.00154
+ODE integrator result: -9.00249 

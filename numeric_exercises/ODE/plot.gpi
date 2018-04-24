@@ -1,0 +1,7 @@
+set terminal pdf
+set out 'sinPlot.pdf'
+set xlabel 'x'
+set ylabel 'y(x)'
+set key bottom
+set title 'Solution of the ODE: d^2y/dx^2=-y(x)'
+plot 'sin.txt' using 1:2 with lines title 'sin(x)'
