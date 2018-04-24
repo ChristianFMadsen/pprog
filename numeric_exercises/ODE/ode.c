@@ -91,7 +91,6 @@ double integrator(gsl_vector* xlist, gsl_matrix* ylist, double b, double h, doub
         gsl_vector_set(dydx,0,fx); }
 
     int numberOfSteps=ode_driver(xlist,ylist,b,h,acc,eps,maxSteps,dim,integSystem);
-    //printf("number of steps taken is: %i\n",k);
     return gsl_matrix_get(ylist,numberOfSteps,0);
 }
 
