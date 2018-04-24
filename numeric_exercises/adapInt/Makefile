@@ -5,7 +5,7 @@ CC = gcc
 .PHONY: all
 all: out.txt
 
-out.txt: main
+out.txt: main Makefile
 	./$< > $@
 
 main: adapInt.o
