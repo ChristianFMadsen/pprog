@@ -65,9 +65,9 @@ double aToInf(double f(double x, int* fCalls), double a, double acc, double eps,
 }
 
 
-double clenCurtis(double f(double x, int* fCalls), double acc, double eps, double* error, int* fCalls){
+double clenCurtis(double f(double x, int* fCalls), double a, double b, double acc, double eps, double* error, int* fCalls){
 	double g(double t, int* fCalls){
-		return f( cos(t) , fCalls )*sin(t);
+		return f((a+b)/2+(a-b)/2*cos(t), fCalls)*sin(t)*(b-a)/2;
 	}
 	return my_integrator(g,0,M_PI,acc,eps,error,fCalls);
 }
