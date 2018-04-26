@@ -1,0 +1,10 @@
+Testing plain Monte Carlo integrator:
+Testing on the integral tan(x) from -1.5708 to 1.5708 with N=1000000. The result should be 0.
+(actually the integral is not defined, however if you take the integral from -a to a and let a approach pi/2 then that limit is equal to 0.
+integral_result=-3.11237, estimated error=2.22726
+
+Now testing on the integral exp(x^2) from 0 to 1 with N=1000000. The result should be approximately 1.46265...
+integral_result=1.46222, estimated error=0.00047389
+
+Now testing on the ''difficult singular integral'' from the exercise page with N=1000000. 
+integral_result=1.391798603, estimated error=0.0075539

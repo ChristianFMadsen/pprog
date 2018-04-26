@@ -1,0 +1,9 @@
+set terminal pdf
+set out 'plainMCerror.pdf'
+set xlabel 'N'
+set ylabel 'Estimated error'
+set title 'Estimated error as a function of N for a plain Monte Carlo integrator'
+f(x)=b/sqrt(x); \
+	fit f(x) "errors.txt" via b; \
+	legend = sprintf("fit: %4.2f/sqrt(N)",b); \
+	plot "errors.txt" pt 7 ps 0.2 title "Est. error of int. exp(x^2)" with points, f(x) title legend; \
