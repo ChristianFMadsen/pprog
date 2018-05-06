@@ -1,0 +1,7 @@
+set term pdf
+set out "annCF.pdf";
+set title "Artificial Neural Network curve fit of cos(x)sin(x)cos(2x)sin(2x)exp(-x^3)";
+set xlabel "x";
+set ylabel "y";
+plot "out.txt" index 0 with points pointtype 6 title "Data" \
+,"out.txt" index 1 with lines title "Fit"
