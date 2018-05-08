@@ -1,0 +1,38 @@
+Using multiprocessing to evaluate integrals using my adaptive integrator.
+Thread 1 will handle part A of the exercise while thread 2 will handle part B and C of the exercise:
+----[1] First thread started on part A:----
+[1] Part A: Testing recursive adaptive integrator:
+[1] Integrating sqrt(x) on the interval [0,1] with acc=1e-06 and eps=1e-06
+[1] integral_result=0.666667, estimated error=5.42507e-08
+
+[1] Integrating 1/sqrt(x) on the interval [0,1] with acc=1e-06 and eps=1e-06
+----[2] Second thread started on part B:----
+[2] Part B: Integrating x/(exp(x)-1) on the interval [0,Inf) with acc=1e-10 and eps=1e-10
+[2] Result: pi^2/6 = 1.64493...
+[1] integral_result=2, estimated error=1.65345e-07
+
+[1] Integrating ln(x)/sqrt(x) on the interval [0,1] with acc=1e-06 and eps=1e-06
+[2] integral_result=1.64493, estimated error=3.20073e-13, function calls: 130691
+
+[2] Using GSL routines:
+[2] integral_result=1.64493, error=2.2095e-11, function calls: 250
+
+[2] Part C: Clenshaw-Curtis variable transformation:
+[2] Integrating sin(x)/sqrt(x+1) on the interval [-1,1] with acc=1e-10 and eps=1e-10
+[2] Note that the integrand is divergent at x=-1.
+[2] Result=-0.8266196541509...
+[2] First using the integrator from part A:
+[2] integral_result=-0.8266196465662, estimated error=5.45297e-13, function calls: 254579
+
+[2] Now using the Clenshaw-Curtis transformation:
+[2] integral_result=-0.8266196541514, estimated error=3.98333e-13, function calls: 52141
+
+[2] Note that the Clenshaw-Curtis transformation reduces the amount of function calls and produces a result closer to the actual result compared to the integrator from part A.
+----[2] Second thread ended on part B.----
+[1] integral_result=-4, estimated error=5.41917e-08
+
+[1] Integrating 4*sqrt(1-(1-x)^2) on the interval [0,1] with acc=1e-11 and eps=1e-10
+[1] integral_result=3.141592653589793115997963468544185161590576171875, estimated error=5.05275e-14, function calls:58500
+[1] Difference between math.h M_PI and the integral result: 0 
+
+----[1] First thread ended on part A.----
