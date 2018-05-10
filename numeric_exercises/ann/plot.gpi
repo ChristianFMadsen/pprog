@@ -5,3 +5,11 @@ set xlabel "x";
 set ylabel "y";
 plot "out.txt" index 0 with points pointtype 6 title "Data" \
 ,"out.txt" index 1 with lines title "Fit"
+
+set term pdf
+set out "ann2DCF.pdf"
+set dgrid3d 30,30 					#should fit with the grid size (here nx in main.c determines the gridsize)
+set zlabel "f(x,y)";
+set title "Artificial Neural Network 2D curve fit of f(x,y)=x^2-y^2";
+splot "out.txt" index 2 with lines title "Data" \
+, "out.txt" index 3 with lines title "Fit"

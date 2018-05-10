@@ -1,8 +1,11 @@
 CFLAGS += -Wall -std=gnu1x $$(gsl-config --cflags)
 LDLIBS += $$(gsl-config --libs)
 
+.PHONY: all
 
-annCF.pdf: out.txt Makefile plot.gpi
+all: annCF.pdf ann2DCF.pdf
+
+annCF.pdf ann2DCF.pdf: out.txt Makefile plot.gpi
 	gnuplot plot.gpi
 
 out.txt: main
