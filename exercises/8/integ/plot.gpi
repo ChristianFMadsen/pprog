@@ -2,5 +2,5 @@ set term pdf enhanced
 set out 'plot.pdf'
 set xlabel '{/Symbol a}'
 set ylabel 'E({/Symbol a})'
-set title 'Energy as a function of {/Symbol a}'
+set title 'Energy as a function of {/Symbol a} '
 plot [][0:3] "energies.txt" using 1:2 with lines title 'E({/Symbol a})'
