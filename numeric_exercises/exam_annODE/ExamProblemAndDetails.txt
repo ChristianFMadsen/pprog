@@ -1,0 +1,2 @@
+This is a solution of the exam problem 'Artificial neural network (ANN) for solving ODE'.
+Made by Christian F. Madsen, student number: 201506198
