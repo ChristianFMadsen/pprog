@@ -38,5 +38,6 @@ Minimum found at:
 -3.28319
 At found minimum: f(x)=3.53823e-09
 In 11 steps.
+Note that the method from part A) takes less steps than the quasi Newton method.
 Compared to the root finding exercise where the Newton's method with numerical Jacobian was used:
 Rosenbrock: 393 steps taken, Himmelblau: 8 steps taken

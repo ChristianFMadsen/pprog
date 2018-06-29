@@ -30,6 +30,7 @@ int main(){
 	printf("At found minimum: f(x)=%g\n", fx_him(xstart));
 	printf("In %i steps.\n", numberOfSteps);	
 
+	printf("Note that the method from part A) takes less steps than the quasi Newton method.\n");
 	printf("Compared to the root finding exercise where the Newton's method with numerical Jacobian was used:\n"); 
 	printf("Rosenbrock: 393 steps taken, Himmelblau: 8 steps taken\n");
 	//Part B.iv)

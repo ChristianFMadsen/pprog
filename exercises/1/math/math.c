@@ -20,7 +20,7 @@ float yfloat=0.111111111111111111111111111111;
 printf("yfloat=%.25g\n",yfloat);
 double ydouble=0.111111111111111111111111111111;
 printf("ydouble=%.25lg\n", ydouble);
-long double ylongdouble=0.111111111111111111111111111111;
+long double ylongdouble=0.111111111111111111111111111111L;
 printf("ylongdouble=%.25Lg\n", ylongdouble);
 
 return 0;
