@@ -37,19 +37,19 @@ This yields f(1,1)=(1-1)²+100(1-1²)²=0 for the Rosenbrock function.
 
 Finding the root of the gradient of the Himmelblau function:
 Start vector x:
--1
+0
 7
 f(x):
-94
-1142
+84
+1168
 Solution vector x:
 3
 2
 f(x):
-4.19784e-09
-3.46292e-08
+1.30335e-10
+1.14678e-09
 Number of steps taken: 8
-Number of function calls: 36
+Number of function calls: 35
 This yields f(3,2)=(3²+2-11)²+(3+2²-7)²=0 for the Himmelblau function.
 
 Part B: Newton's method with analytic Jacobian
@@ -91,19 +91,19 @@ This yields f(1,1)=(1-1)²+100(1-1²)²=0 for the Rosenbrock function.
 
 Finding the root of the gradient of the Himmelblau function:
 Start vector x:
--1
+0
 7
 f(x):
-94
-1142
+84
+1168
 Solution vector x:
 3
 2
 f(x):
-4.27753e-09
-3.45943e-08
+1.40911e-10
+1.13847e-09
 Number of steps taken: 8
-Number of function calls: 20
+Number of function calls: 19
 This yields f(3,2)=(3²+2-11)²+(3+2²-7)²=0 for the Himmelblau function.
 
 Finding the root of the Rosenbrock gradient using GSL routines. The solver type is the discrete Newton algorithm using finite differences.
@@ -113,3 +113,64 @@ Root found at: (x,y)=(1,1)
 Now using the Newton method with supplied Jacobian using the same start guess:
 Number of steps taken: 5 
 Root found at: (x,y)=(1,1)
+
+
+Part C: Newton's method with analytic Jacobian and refined linesearch.
+Finding the root of the system of equations:
+A*x*y=1
+exp(-x)+exp(-y)=1+1/A
+where A=10000.
+Start vector x:
+2
+-2
+f(x):
+-40001
+6.52429
+Solution vector x:
+9.10615
+1.09816e-05
+f(x):
+-3.45707e-11
+1.95166e-13
+Number of steps taken: 15
+Number of function calls: 32
+
+Finding the root of the gradient of the Rosenbrock function:
+Start vector x:
+3
+5
+f(x):
+4804
+-800
+Solution vector x:
+1
+1
+f(x):
+-7.68274e-14
+4.44089e-14
+Number of steps taken: 5
+Number of function calls: 12
+This yields f(1,1)=(1-1)²+100(1-1²)²=0 for the Rosenbrock function.
+
+Finding the root of the gradient of the Himmelblau function:
+Start vector x:
+0
+7
+f(x):
+84
+1168
+Solution vector x:
+3
+2
+f(x):
+8.38436e-09
+6.70025e-08
+Number of steps taken: 7
+Number of function calls: 16
+This yields f(3,2)=(3²+2-11)²+(3+2²-7)²=0 for the Himmelblau function.
+
+Comparisons:
+The number of steps taken does not change between the method with a numerical Jacobian and the method with an analytic Jacobian.
+The amount of function calls is reduced when using the method with an analytic Jacobian however.
+In all cases the number of steps and function calls is reduced when using the method with an analytic Jacobian combined with a refined linesearch. 
+The method with an analytic Jacobian combined with the refined linesearch even takes the same number of steps as the GSL routine.

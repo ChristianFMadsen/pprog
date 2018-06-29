@@ -68,7 +68,7 @@ printf("This yields f(1,1)=(1-1)²+100(1-1²)²=0 for the Rosenbrock function.\n
 
 printf("\n"); printf("Finding the root of the gradient of the Himmelblau function:\n"); 
 printf("Start vector x:\n");
-gsl_vector_set(x1,0,-1); gsl_vector_set(x1,1,7);
+gsl_vector_set(x1,0,0); gsl_vector_set(x1,1,7);
 gsl_vector_fprintf(stdout, x1, "%g");
 f3(x1,fx); 
 printf("f(x):\n"); gsl_vector_fprintf(stdout, fx, "%g");

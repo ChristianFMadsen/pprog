@@ -1,6 +1,7 @@
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_matrix.h>
 #include <gsl/gsl_blas.h>
+#include <math.h>
 #include "qr-rf.h"
 /* void f(gsl_vector* x, gsl_vector* fx) contains a guess in x and then calculates the function value f(x) */
 int newton(int f(gsl_vector* x1, gsl_vector* fx), gsl_vector* x, double dx, double eps){
@@ -73,7 +74,6 @@ gsl_vector* Dx = gsl_vector_alloc(n);
 
 while(1){
 f(x,fx,J);
-//gsl_matrix_memcpy(Q,J);
 qr_gs_decomp(J,R);
 qr_gs_solve(J,R,fx,Dx); 
 gsl_vector_scale(Dx, -1); 
@@ -95,6 +95,44 @@ numberOfSteps++;
 if(gsl_blas_dnrm2(fx)<eps){ 
 	break; }
 }
+
+gsl_matrix_free(J); gsl_matrix_free(fJ); gsl_matrix_free(R); gsl_vector_free(fx); gsl_vector_free(z); gsl_vector_free(fz); gsl_vector_free(Dx); 
+return numberOfSteps;
+}
+
+int newton_with_jacobian_refined(int f(const gsl_vector* x, gsl_vector* fx, gsl_matrix* J), gsl_vector* x, double eps){
+int n=x->size;
+int numberOfSteps=0;
+gsl_matrix* J = gsl_matrix_alloc(n,n); 
+gsl_matrix* fJ = gsl_matrix_alloc(n,n);
+gsl_matrix* R = gsl_matrix_alloc(n,n); 
+gsl_vector* fx = gsl_vector_alloc(n); 
+gsl_vector* z  = gsl_vector_alloc(n); 
+gsl_vector* fz = gsl_vector_alloc(n); 
+gsl_vector* Dx = gsl_vector_alloc(n); 
+
+do{
+	f(x,fx,J);
+	qr_gs_decomp(J,R);
+	qr_gs_solve(J,R,fx,Dx); 
+	gsl_vector_scale(Dx, -1); 
+	double g0 = 0.5*pow(gsl_blas_dnrm2(fx),2);
+	double gprime0 = -pow(gsl_blas_dnrm2(fx),2);
+	double glambda = 0;
+	double lambda=1;
+	do{
+		double c = (glambda-g0-gprime0*lambda)/(lambda*lambda);
+		glambda = g0+gprime0*lambda+c*lambda*lambda;
+		gsl_vector_memcpy(z,x);
+		gsl_vector_scale(Dx,lambda);
+		gsl_vector_add(z,Dx);
+		f(z,fz,fJ);
+		lambda=gprime0/(2*c);
+	}while(gsl_blas_dnrm2(fz) > (1-lambda/2)*gsl_blas_dnrm2(fx) && lambda > 1.0/64);
+	gsl_vector_memcpy(x,z);
+	gsl_vector_memcpy(fx,fz);
+	numberOfSteps++;
+}while(gsl_blas_dnrm2(fx)>eps);
 
 gsl_matrix_free(J); gsl_matrix_free(fJ); gsl_matrix_free(R); gsl_vector_free(fx); gsl_vector_free(z); gsl_vector_free(fz); gsl_vector_free(Dx); 
 return numberOfSteps;

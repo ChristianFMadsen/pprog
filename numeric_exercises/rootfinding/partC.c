@@ -41,7 +41,7 @@ return funCalls;
 }
 
 int main() {
-printf("Part B: Newton's method with analytic Jacobian\n");
+printf("\n\nPart C: Newton's method with analytic Jacobian and refined linesearch.\n");
 int numberOfSteps, funCalls;
 gsl_vector* x1=gsl_vector_alloc(2); 
 gsl_vector* fx=gsl_vector_alloc(2); 
@@ -53,7 +53,7 @@ gsl_vector_set(x1,0,2); gsl_vector_set(x1,1,-2);
 gsl_vector_fprintf(stdout, x1, "%g");
 f1(x1,fx,J); 
 printf("f(x):\n"); gsl_vector_fprintf(stdout, fx, "%g");
-numberOfSteps=newton_with_jacobian(f1,x1,eps);
+numberOfSteps=newton_with_jacobian_refined(f1,x1,eps);
 printf("Solution vector x:\n"); gsl_vector_fprintf(stdout, x1, "%g");
 funCalls=f1(x1,fx,J);
 printf("f(x):\n"); gsl_vector_fprintf(stdout, fx, "%g");
@@ -66,7 +66,7 @@ gsl_vector_set(x1,0,3); gsl_vector_set(x1,1,5);
 gsl_vector_fprintf(stdout, x1, "%g");
 f2(x1,fx,J); 
 printf("f(x):\n"); gsl_vector_fprintf(stdout, fx, "%g");
-numberOfSteps=newton_with_jacobian(f2,x1,eps);
+numberOfSteps=newton_with_jacobian_refined(f2,x1,eps);
 printf("Solution vector x:\n"); gsl_vector_fprintf(stdout, x1, "%g");
 funCalls=f2(x1,fx,J);
 printf("f(x):\n"); gsl_vector_fprintf(stdout, fx, "%g");
@@ -80,7 +80,7 @@ gsl_vector_set(x1,0,0); gsl_vector_set(x1,1,7);
 gsl_vector_fprintf(stdout, x1, "%g");
 f3(x1,fx,J); 
 printf("f(x):\n"); gsl_vector_fprintf(stdout, fx, "%g");
-numberOfSteps=newton_with_jacobian(f3,x1,eps);
+numberOfSteps=newton_with_jacobian_refined(f3,x1,eps);
 printf("Solution vector x:\n"); gsl_vector_fprintf(stdout, x1, "%g");
 funCalls=f3(x1,fx,J);
 printf("f(x):\n"); gsl_vector_fprintf(stdout, fx, "%g");
@@ -88,6 +88,13 @@ printf("Number of steps taken: %i\n", numberOfSteps);
 printf("Number of function calls: %i\n", funCalls);
 printf("This yields f(3,2)=(3²+2-11)²+(3+2²-7)²=0 for the Himmelblau function.\n");
 printf("\n");
+
+
+printf("Comparisons:\n");
+printf("The number of steps taken does not change between the method with a numerical Jacobian and the method with an analytic Jacobian.\n");
+printf("The amount of function calls is reduced when using the method with an analytic Jacobian however.\n");
+printf("In all cases the number of steps and function calls is reduced when using the method with an analytic Jacobian combined with a refined linesearch. \n");
+printf("The method with an analytic Jacobian combined with the refined linesearch even takes the same number of steps as the GSL routine.\n");
 
 gsl_vector_free(x1); gsl_vector_free(fx); gsl_matrix_free(J); 
 return 0;
