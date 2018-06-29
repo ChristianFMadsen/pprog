@@ -1,6 +1,6 @@
 CFLAGS = -Wall -std=gnu1x $$(gsl-config --cflags) 
 LDLIBS = $$(gsl-config --libs) -lm
-CC = clang
+CC = gcc
 
 .PHONY: all
 all: out.txt plainMCerror.pdf
@@ -8,9 +8,9 @@ all: out.txt plainMCerror.pdf
 out.txt: main Makefile
 	./$< > $@
 
-main: montecarlo.o
+main: montecarlo.o adapInt.o
 
-montecarlo.o: montecarlo.h
+montecarlo.o adapInt.o: montecarlo.h
 
 errors.txt: main
 	./$<

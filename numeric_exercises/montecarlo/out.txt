@@ -8,3 +8,12 @@ integral_result=1.46222, estimated error=0.00047389
 
 Now testing on the ''difficult singular integral'' from the exercise page with N=1000000. 
 integral_result=1.391798603, estimated error=0.0075539
+
+Integration of functions with two variables using a 1D adaptive integrator:
+Integral of e^(x^2)*sin(xy)*cos(x-y) from {0,x^2} to {1,exp(x^3)}.
+Expected result: 0.68746
+Result=0.68746 	 Est. error=1.65982e-05 	 Actual error=2.27427e-07
+
+Integral of ln(sqrt(x*y)) from {0,x} to {10,x^(-1/3)}.
+Expected result: -66.7478
+Result=-66.7478 	 Est. error=0.00148008 	 Actual error=2.7393e-05

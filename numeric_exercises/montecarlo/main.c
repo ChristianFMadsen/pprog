@@ -34,7 +34,29 @@ for (int i=1; i < 1000; i++){
 	plainMC(dim,a,b,int2,N,&result,&error);
 	fprintf(datastream, "%i \t %g\n",N,error);
 }
-
 fclose(datastream);
+
+
+printf("\nIntegration of functions with two variables using a 1D adaptive integrator:\n");
+printf("Integral of e^(x^2)*sin(xy)*cos(x-y) from {0,x^2} to {1,exp(x^3)}.\n");
+double exp_res1=0.68746;
+printf("Expected result: %g\n", exp_res1);
+double f1_2D(double* x, int* fCalls){ return exp(x[0]*x[0])*sin(x[0]*x[1])*cos(x[0]-x[1]); }
+double c1(double x){ return x*x; }
+double d1(double x){ return exp(x*x*x); }
+double a2d=0, b2d=1, acc=1e-4, eps=1e-4;
+int fCalls=0;
+double res1_2D = int2D(f1_2D,&fCalls,a2d,b2d,c1,d1,acc,eps,&error);
+printf("Result=%g \t Est. error=%g \t Actual error=%g\n", res1_2D, error,fabs(res1_2D-exp_res1));
+
+printf("\nIntegral of ln(sqrt(x*y)) from {0,x} to {10,x^(-1/3)}.\n");
+double exp_res2=-66.7478;
+printf("Expected result: %g\n", exp_res2);
+double f2_2D(double* x, int* fCalls){ return log(sqrt(x[0]*x[1])); }
+double c2(double x){ return x; }
+double d2(double x){ return pow(x,-1.0/3); }
+a2d=0, b2d=10;
+double res2_2D = int2D(f2_2D,&fCalls,a2d,b2d,c2,d2,acc,eps,&error);
+printf("Result=%g \t Est. error=%g \t Actual error=%g\n", res2_2D, error,fabs(res2_2D-exp_res2));
 return 0;
 }

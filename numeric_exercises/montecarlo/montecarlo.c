@@ -40,3 +40,16 @@ double avg=sum/N, var=sum2/N-avg*avg; // Calculate average and sigma^2 (variance
 *result=avg*V; //Calculate result according to eq. 2
 *error=sqrt(var/N)*V; //Calculate error according to eq. 3
 }
+
+
+
+double int2D(double f(double* x, int* fCalls), int* fCalls, double a, double b, double c(double), double d(double), double acc, double eps, double* error){
+	double f1(double x1, int* fCalls){
+		double f2(double x2, int* fCalls){
+			double xs[]={x1,x2};
+			return f(xs, fCalls);
+		}
+		return my_integrator(f2, c(x1), d(x1), acc, eps, error, fCalls);
+	}
+	return my_integrator(f1, a, b, acc, eps, error, fCalls);
+}
