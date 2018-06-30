@@ -1,3 +1,0 @@
-The number of steps does not change between the method with a numerical Jacobian and the method with an analytic Jacobian.
-The amount of function calls is reduced when using an analytic Jacobian.
-The GSL root finder takes significantly less steps when solving the Rosenbrock function compared to my routine. My routine takes 393 steps while the GSL routine takes 5 steps.
