@@ -30,7 +30,7 @@ double gauss_function_solution(double x){
 int main(){
 	FILE* examprob = fopen("ExamProblemAndDetails.txt", "w");
 	fprintf(examprob, "This is a solution of the exam problem 'Artificial neural network (ANN) for solving ODE'.\nMade by Christian F. Madsen, student number: 201506198\n");
-	int N=24;
+	int N=20;
 	int n=7; //amount of hidden neurons
 	double a=-5.0, b=5.0, x0=0.0, y0Log=0.5, y0Gauss=1.0; //start and end points as well as initial conditions
 

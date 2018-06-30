@@ -3,6 +3,7 @@ set out "annGauss.pdf"
 set title "Artificial neural network solution of y'=-xy ";
 set xlabel "x";
 set ylabel "y";
+set xrange [-5:5];
 plot "gaussData.txt" using 1:3 title "Analytic solution" with lines \
 ,"gaussData.txt" using 1:2 title "ANN solution" with lines
 
@@ -12,6 +13,7 @@ set out "annLogistic.pdf";
 set title "Artificial neural network solution of y'=y(1-y)";
 set xlabel "x";
 set ylabel "y";
+set xrange [-5:5];
 set key right bottom
 plot "logisticData.txt" using 1:3 title "Analytic solution" with lines \
 ,"logisticData.txt" using 1:2 title "ANN solution" with lines

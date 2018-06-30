@@ -33,7 +33,7 @@ void ann_feed_forward(ann* network, double x, double* F, double* dF){
 
 
 void ann_train(ann* network, gsl_vector* vx, double (*func)(double, double), double x0, double y0){
-	double dx=1e-4, eps=1e-4;
+	double dx=1e-6, eps=1e-5;
 	int N=vx->size;
 	double Fpxk, dFpxk, Fpx0, dFpx0;
 	double deviation(gsl_vector* p){ //Deviation function
@@ -47,7 +47,8 @@ void ann_train(ann* network, gsl_vector* vx, double (*func)(double, double), dou
 		}
 		ann_feed_forward(network,x0,&Fpx0, &dFpx0);
 		sum+=N*pow(fabs(Fpx0-y0),2); //Adds the last term
-		return sum;
+
+		return sum/N;
 	}
 	gsl_vector* p=gsl_vector_alloc(network->data->size);
 	gsl_vector_memcpy(p,network->data);
