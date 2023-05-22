@@ -1,25 +1,28 @@
-Repository for the 2018 edition of the course practical programming and numerical methods at Aarhus University.
+## Repository for the course practical programming and numerical methods (2018) at Aarhus University.
+
+
+
 
 Contains numerical methods for:
 
-Root finding
+- Root finding
 
-Interpolation and extrapolation
+- Interpolation and extrapolation
 
-Least-squares fit
+- Least-squares fit
 
-Linear and non-linear equations
+- Linear and non-linear equations
 
-Monte Carlo integration
+- Monte Carlo integration
 
-Adaptive integration
+- Adaptive integration
 
-Matrix diagonalization
+- Matrix diagonalization
 
-Differential equations
+- Differential equations
 
-Optimization
+- Optimization
 
-Symmetric multi processing
+- Symmetric multi processing
 
-Artificial neural networks
+- Artificial neural networks
